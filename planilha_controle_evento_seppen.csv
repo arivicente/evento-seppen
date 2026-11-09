@@ -1,0 +1,7 @@
+ID,Data_Inscricao,Nome_Completo,Matricula,Lotacao_Unidade,WhatsApp,CPF,Opcao_Pagamento,Valor_Total,Valor_Pago,Parcela_Atual,Saldo_Devedor,Status_Pagamento,Chave_Transacao_Pix,Entrou_Grupo_WhatsApp,Presente_Checkin,Observacoes
+1,2026-11-09 10:15,Alexandre da Silva Santos,987654-3,SEPPEN - Coordenação,(21) 98813-5888,111.222.333-44,À Vista,200.00,200.00,Integral,0.00,QUITADO,MP-PIX-98231451,Sim,Pendente,Organizador Geral
+2,2026-11-09 11:30,Carlos Eduardo Meireles,876543-2,GSI - Operações,(21) 99123-4567,222.333.444-55,Parcelado 2x,200.00,100.00,1ª Parcela,100.00,PARCELA 1 PAGA,MP-PIX-98231452,Sim,Pendente,Segunda parcela vence em 10/12
+3,2026-11-09 12:45,Marcos Vinicius de Souza,765432-1,SEAP - Segurança,(21) 98456-7890,333.444.555-66,À Vista,200.00,200.00,Integral,0.00,QUITADO,MP-PIX-98231453,Sim,Pendente,Confirmado
+4,2026-11-09 14:10,Rodrigo Silveira Barreto,654321-0,SEPPEN - Ensino,(21) 97321-6540,444.555.666-77,Parcelado 2x,200.00,100.00,1ª Parcela,100.00,PARCELA 1 PAGA,MP-PIX-98231454,Sim,Pendente,Segunda parcela vence em 10/12
+5,2026-11-09 15:00,Luciana Ferreira Lima,543210-9,Corregedoria,(21) 99876-1234,555.666.777-88,À Vista,200.00,200.00,Integral,0.00,QUITADO,MP-PIX-98231455,Sim,Pendente,Confirmado
+6,2026-11-09 16:20,Fabio Augusto de Oliveira,432109-8,GIR - Grupo de Intervenção,(21) 98111-2233,666.777.888-99,Parcelado 2x,200.00,100.00,1ª Parcela,100.00,PARCELA 1 PAGA,MP-PIX-98231456,Sim,Pendente,Segunda parcela vence em 10/12

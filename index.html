@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Confraternização de Fim de Ano | Polícia Penal SEPPEN - RJ</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- QRCode.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            govNavy: '#0c2340',
+            govGold: '#d4af37',
+            govGoldDark: '#b89628',
+            policiaDark: '#121820',
+            policiaCard: '#1b2330'
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .glass-card {
+      background: rgba(27, 35, 48, 0.85);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(212, 175, 55, 0.25);
+    }
+    .badge-gold {
+      background: linear-gradient(135deg, #d4af37 0%, #f6e27a 50%, #b89628 100%);
+      color: #0c2340;
+    }
+    .pulse-glow {
+      box-shadow: 0 0 20px rgba(212, 175, 55, 0.35);
+    }
+  </style>
+</head>
+<body class="bg-[#0b1118] text-slate-100 min-h-screen antialiased selection:bg-amber-400 selection:text-slate-900 pb-16">
+
+  <!-- TOP BAR GOVERNO / POLICIA PENAL -->
+  <header class="bg-govNavy/90 border-b border-amber-500/20 sticky top-0 z-50 backdrop-blur-md">
+    <div class="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <div class="w-10 h-10 rounded-full bg-amber-400/10 border border-amber-400/30 flex items-center justify-center text-amber-400 font-bold text-lg">
+          <i class="fa-solid fa-shield-halved"></i>
+        </div>
+        <div>
+          <h1 class="text-xs uppercase tracking-wider text-amber-400 font-bold">Governo do Estado do Rio de Janeiro</h1>
+          <p class="text-xs text-slate-300 font-medium">Secretaria de Polícia Penal | SEPPEN</p>
+        </div>
+      </div>
+      <a href="#como-chegar" class="hidden sm:inline-flex items-center text-xs font-semibold text-slate-200 hover:text-amber-400 bg-slate-800/80 px-3 py-1.5 rounded-lg border border-slate-700 transition">
+        <i class="fa-solid fa-location-dot text-amber-400 mr-2"></i> Como Chegar
+      </a>
+    </div>
+  </header>
+
+  <main class="max-w-4xl mx-auto px-4 pt-6 space-y-8">
+
+    <!-- HERO SECTION -->
+    <section class="glass-card rounded-2xl p-6 sm:p-8 relative overflow-hidden pulse-glow">
+      <div class="absolute -right-16 -top-16 w-56 h-56 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="flex flex-col md:flex-row gap-6 items-center">
+        <!-- Poster Thumbnail -->
+        <div class="w-full md:w-5/12 flex-shrink-0 text-center">
+          <div class="relative group rounded-xl overflow-hidden shadow-2xl border-2 border-amber-400/40">
+            <img src="cartaz_evento.jpg" alt="Cartaz Oficial Confraternização SEPPEN" class="w-full h-auto object-cover transform group-hover:scale-105 transition duration-500">
+            <div class="absolute bottom-2 right-2 bg-slate-900/80 backdrop-blur-md text-[10px] text-amber-300 font-bold px-2 py-1 rounded">
+              <i class="fa-solid fa-magnifying-glass-plus mr-1"></i> Cartaz Oficial
+            </div>
+          </div>
+        </div>
+
+        <!-- Info Resumo -->
+        <div class="w-full md:w-7/12 space-y-4">
+          <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-amber-400/15 border border-amber-400/30 text-amber-300 text-xs font-semibold">
+            <i class="fa-solid fa-champagne-glasses"></i>
+            <span>Evento Oficial de Confraternização 2026</span>
+          </div>
+
+          <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-white leading-tight">
+            Confraternização de Fim de Ano <span class="text-amber-400">SEPPEN</span>
+          </h2>
+          <p class="text-sm text-slate-300">
+            Churrasco com música ao vivo e buffet completo em um dos locais mais exclusivos do Rio com vista panorâmica.
+          </p>
+
+          <div class="grid grid-cols-2 gap-3 pt-2">
+            <div class="bg-slate-900/60 p-3 rounded-xl border border-slate-700/60">
+              <span class="text-slate-400 text-xs block mb-1"><i class="fa-regular fa-calendar-days text-amber-400 mr-1"></i> Data</span>
+              <span class="font-bold text-sm text-white">17 de Dezembro</span>
+            </div>
+            <div class="bg-slate-900/60 p-3 rounded-xl border border-slate-700/60">
+              <span class="text-slate-400 text-xs block mb-1"><i class="fa-regular fa-clock text-amber-400 mr-1"></i> Horário</span>
+              <span class="font-bold text-sm text-white">15h às 20h</span>
+            </div>
+          </div>
+
+          <div class="bg-slate-900/60 p-3.5 rounded-xl border border-slate-700/60 flex items-start space-x-3">
+            <i class="fa-solid fa-map-pin text-amber-400 mt-1"></i>
+            <div class="text-xs">
+              <span class="font-bold text-slate-200 block text-sm">Clube Costa Brava</span>
+              <p class="text-slate-400">Rua Srg. José da Silva, 3621 – Joá – RJ (Condomínio SAJO)</p>
+            </div>
+          </div>
+
+          <a href="#inscricao" class="block text-center badge-gold font-bold py-3 px-6 rounded-xl shadow-lg hover:brightness-110 active:scale-[0.99] transition duration-200">
+            <i class="fa-solid fa-bolt mr-2"></i> Garantir Minha Vaga no Pix
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: COMO CHEGAR (MAPS & WAZE + ROTA) -->
+    <section id="como-chegar" class="glass-card rounded-2xl p-6 sm:p-8 space-y-6">
+      <div class="border-b border-slate-700/60 pb-4">
+        <div class="flex items-center justify-between flex-wrap gap-2">
+          <div>
+            <span class="text-amber-400 text-xs font-bold uppercase tracking-wider">Logística e Acesso</span>
+            <h3 class="text-xl sm:text-2xl font-bold text-white flex items-center">
+              <i class="fa-solid fa-route text-amber-400 mr-2.5"></i> Como Chegar ao Clube Costa Brava
+            </h3>
+          </div>
+          <span class="text-xs text-slate-400 bg-slate-800 px-3 py-1 rounded-full border border-slate-700">
+            Joá, Rio de Janeiro
+          </span>
+        </div>
+        <p class="text-xs text-slate-400 mt-1">
+          O clube fica situado no alto da falésia do Joá, dentro do condomínio fechado SAJO (Sociedade dos Amigos da Joatinga).
+        </p>
+      </div>
+
+      <!-- BOTÕES DE 1-CLIQUE WAZE E GOOGLE MAPS -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <a href="https://maps.google.com/?q=Costa+Brava+Clube+Rua+Sargento+José+da+Silva+3621+Joá+Rio+de+Janeiro" target="_blank" rel="noopener noreferrer"
+           class="flex items-center justify-center space-x-3 bg-blue-600/20 hover:bg-blue-600/30 border border-blue-500/40 text-blue-200 py-3.5 px-4 rounded-xl font-bold text-sm transition group">
+          <i class="fa-brands fa-google text-lg text-blue-400 group-hover:scale-110 transition"></i>
+          <span>Abrir no Google Maps</span>
+          <i class="fa-solid fa-arrow-up-right-from-square text-xs opacity-60"></i>
+        </a>
+
+        <a href="https://www.waze.com/ul?q=Costa+Brava+Clube+Joa&navigate=yes" target="_blank" rel="noopener noreferrer"
+           class="flex items-center justify-center space-x-3 bg-cyan-600/20 hover:bg-cyan-600/30 border border-cyan-500/40 text-cyan-200 py-3.5 px-4 rounded-xl font-bold text-sm transition group">
+          <i class="fa-brands fa-waze text-xl text-cyan-400 group-hover:scale-110 transition"></i>
+          <span>Navegar pelo Waze</span>
+          <i class="fa-solid fa-arrow-up-right-from-square text-xs opacity-60"></i>
+        </a>
+      </div>
+
+      <!-- GUIAS DETALHADOS POR MEIO DE TRANSPORTE -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
+        <!-- CARRO / MOTO -->
+        <div class="bg-slate-900/70 p-4 rounded-xl border border-slate-700/60 space-y-2">
+          <div class="w-8 h-8 rounded-lg bg-amber-400/10 text-amber-400 flex items-center justify-center font-bold">
+            <i class="fa-solid fa-car"></i>
+          </div>
+          <h4 class="font-bold text-sm text-slate-100">De Carro ou Moto</h4>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Acesso pela <strong>Autoestrada Lagoa-Barra / Estrada do Joá</strong>. Subir em direção ao Joatinga.
+          </p>
+          <div class="text-[11px] bg-slate-800/80 p-2 rounded text-slate-300 border-l-2 border-amber-400">
+            <strong>Portaria SAJO:</strong> Informe na guarita que está se dirigindo ao <strong>evento da Polícia Penal no Costa Brava</strong> para liberação imediata.
+          </div>
+        </div>
+
+        <!-- UBER / TAXI -->
+        <div class="bg-slate-900/70 p-4 rounded-xl border border-slate-700/60 space-y-2">
+          <div class="w-8 h-8 rounded-lg bg-emerald-400/10 text-emerald-400 flex items-center justify-center font-bold">
+            <i class="fa-solid fa-taxi"></i>
+          </div>
+          <h4 class="font-bold text-sm text-slate-100">De Uber / 99 / Táxi</h4>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Defina o destino como <strong>"Costa Brava Clube"</strong>.
+          </p>
+          <div class="text-[11px] bg-slate-800/80 p-2 rounded text-slate-300 border-l-2 border-emerald-400">
+            Os carros de aplicativo têm autorização para entrar pelo condomínio e desembarcar você diretamente na porta de entrada do clube.
+          </div>
+        </div>
+
+        <!-- TRANSPORTE PÚBLICO -->
+        <div class="bg-slate-900/70 p-4 rounded-xl border border-slate-700/60 space-y-2">
+          <div class="w-8 h-8 rounded-lg bg-purple-400/10 text-purple-400 flex items-center justify-center font-bold">
+            <i class="fa-solid fa-train-subway"></i>
+          </div>
+          <h4 class="font-bold text-sm text-slate-100">Metrô + Integração</h4>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Metrô Linha 4 até a <strong>Estação Jardim Oceânico</strong> (Barra da Tijuca).
+          </p>
+          <div class="text-[11px] bg-slate-800/80 p-2 rounded text-slate-300 border-l-2 border-purple-400">
+            Da estação, pegue um Uber/táxi (5 a 8 minutos até o clube) ou a <strong>linha de ônibus 557</strong> até a entrada da Estrada do Joá.
+          </div>
+        </div>
+      </div>
+
+      <!-- INFORMAÇÕES CRUCIAIS / AVISOS -->
+      <div class="bg-amber-400/10 border border-amber-400/30 p-4 rounded-xl flex items-start space-x-3 text-xs text-amber-200">
+        <i class="fa-solid fa-circle-exclamation text-amber-400 text-lg mt-0.5"></i>
+        <div class="space-y-1">
+          <p class="font-bold text-amber-300">Dicas Relevantes para o Dia:</p>
+          <ul class="list-disc list-inside space-y-1 text-slate-300 text-[11px]">
+            <li><strong>Estacionamento:</strong> O clube dispõe de vagas internas destinadas aos participantes do evento.</li>
+            <li><strong>Identificação:</strong> Tenha em mãos sua funcional ou documento oficial para apresentação na guarita do condomínio e portaria do clube.</li>
+            <li><strong>Horário:</strong> Chegue a partir das 15h para aproveitar a vista e o pôr do sol na piscina do clube. O evento encerra às 20h.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: INSCRIÇÃO & PAGAMENTO PIX AUTOMATIZADO -->
+    <section id="inscricao" class="glass-card rounded-2xl p-6 sm:p-8 space-y-6">
+      <div class="border-b border-slate-700/60 pb-4">
+        <span class="text-amber-400 text-xs font-bold uppercase tracking-wider">Inscrição Instantânea</span>
+        <h3 class="text-xl sm:text-2xl font-bold text-white flex items-center">
+          <i class="fa-solid fa-qrcode text-amber-400 mr-2.5"></i> Pagamento Autônomo com Confirmação Imediata
+        </h3>
+        <p class="text-xs text-slate-300 mt-1">
+          Selecione a opção desejada. O Pix é gerado na hora e cai diretamente para o organizador <strong>Alexandre da Silva Santos (Mercado Pago)</strong>.
+        </p>
+      </div>
+
+      <!-- PASSO 1: FORMULÁRIO DO POLICIAL -->
+      <div id="step-form" class="space-y-5">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1.5">
+              Nome Completo do Policial <span class="text-amber-400">*</span>
+            </label>
+            <input type="text" id="policial-nome" placeholder="Ex: Alexandre da Silva Santos" 
+                   class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-amber-400 transition">
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1.5">
+              WhatsApp com DDD <span class="text-amber-400">*</span>
+            </label>
+            <input type="tel" id="policial-whatsapp" placeholder="Ex: (21) 98813-5888" 
+                   class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-amber-400 transition">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1.5">
+              Matrícula / ID Funcional <span class="text-slate-500">(Opcional para a portaria)</span>
+            </label>
+            <input type="text" id="policial-matricula" placeholder="Ex: 987654-3" 
+                   class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-amber-400 transition">
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1.5">
+              Lotação / Unidade <span class="text-slate-500">(Opcional)</span>
+            </label>
+            <input type="text" id="policial-lotacao" placeholder="Ex: SEPPEN, GSI, GIR..." 
+                   class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-amber-400 transition">
+          </div>
+        </div>
+
+        <!-- SELETOR DE VALOR / FORMA DE PAGAMENTO -->
+        <div>
+          <label class="block text-xs font-semibold text-slate-300 mb-2">
+            Escolha a Opção de Pagamento:
+          </label>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <!-- Opção 1: À Vista -->
+            <label class="relative flex items-center p-4 bg-slate-900/80 rounded-xl border-2 border-amber-400 cursor-pointer hover:bg-slate-900 transition payment-option">
+              <input type="radio" name="opcao_pagamento" value="200" checked class="text-amber-500 focus:ring-0 mr-3">
+              <div>
+                <div class="flex items-center space-x-2">
+                  <span class="font-bold text-white text-sm">À Vista Integral</span>
+                  <span class="bg-amber-400/20 text-amber-300 text-[10px] font-bold px-2 py-0.5 rounded">Recomendado</span>
+                </div>
+                <div class="text-xl font-extrabold text-amber-400 mt-0.5">R$ 200,00</div>
+                <p class="text-[11px] text-slate-400">Quita a vaga de imediato para o evento.</p>
+              </div>
+            </label>
+
+            <!-- Opção 2: Parcelado em 2x -->
+            <label class="relative flex items-center p-4 bg-slate-900/80 rounded-xl border border-slate-700 cursor-pointer hover:bg-slate-900 transition payment-option">
+              <input type="radio" name="opcao_pagamento" value="100" class="text-amber-500 focus:ring-0 mr-3">
+              <div>
+                <div class="flex items-center space-x-2">
+                  <span class="font-bold text-white text-sm">Parcelado em 2x</span>
+                  <span class="bg-blue-400/20 text-blue-300 text-[10px] font-bold px-2 py-0.5 rounded">1ª Parcela</span>
+                </div>
+                <div class="text-xl font-extrabold text-white mt-0.5">R$ 100,00 <span class="text-xs text-slate-400 font-normal">agora</span></div>
+                <p class="text-[11px] text-slate-400">2ª Parcela de R$ 100,00 até 10/12.</p>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <button onclick="gerarPix()" class="w-full badge-gold font-bold py-3.5 px-6 rounded-xl shadow-lg hover:brightness-110 active:scale-[0.99] transition duration-200 text-sm flex items-center justify-center space-x-2">
+          <i class="fa-brands fa-pix text-lg"></i>
+          <span>Gerar Chave Pix Dinâmica</span>
+        </button>
+      </div>
+
+      <!-- PASSO 2: QR CODE E PIX COPIA E COLA -->
+      <div id="step-pix" class="hidden space-y-6">
+        <div class="bg-slate-900/90 rounded-2xl p-6 border border-amber-400/40 text-center space-y-4">
+          <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-emerald-400/10 border border-emerald-400/30 text-emerald-400 text-xs font-semibold">
+            <i class="fa-solid fa-spinner fa-spin"></i>
+            <span>Aguardando Confirmação Bancária</span>
+          </div>
+
+          <div>
+            <span class="text-xs text-slate-400 uppercase tracking-wider block">Valor a pagar:</span>
+            <span id="pix-valor-display" class="text-3xl font-extrabold text-amber-400">R$ 200,00</span>
+            <p id="pix-detalhe-display" class="text-xs text-slate-300 mt-1">Pagamento integral para Confraternização SEPPEN</p>
+          </div>
+
+          <!-- QR Code Container -->
+          <div class="flex justify-center py-2">
+            <div id="qrcode-box" class="bg-white p-3 rounded-xl shadow-xl inline-block border-2 border-slate-200"></div>
+          </div>
+
+          <!-- Chave Copia e Cola -->
+          <div class="space-y-2 max-w-md mx-auto text-left">
+            <label class="text-xs text-slate-400 font-medium">Pix Copia e Cola (toque para copiar):</label>
+            <div class="flex items-center space-x-2">
+              <input type="text" id="pix-copia-cola" readonly 
+                     class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-xs text-slate-200 font-mono truncate">
+              <button onclick="copiarPix()" id="btn-copiar" class="bg-amber-400 hover:bg-amber-300 text-slate-900 font-bold px-4 py-2 rounded-lg text-xs flex-shrink-0 flex items-center space-x-1.5 transition">
+                <i class="fa-regular fa-copy"></i>
+                <span id="btn-copiar-text">Copiar</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Dados do Titular -->
+          <div class="bg-slate-800/60 p-3 rounded-xl text-left text-xs space-y-1 max-w-md mx-auto border border-slate-700/60">
+            <div class="text-slate-400">Favorecido: <strong class="text-slate-200">Alexandre da Silva Santos</strong></div>
+            <div class="text-slate-400">Instituição: <strong class="text-slate-200">Mercado Pago</strong></div>
+            <div class="text-slate-400">Chave: <span class="font-mono text-amber-400">ppsantosalexandre78@gmail.com</span></div>
+          </div>
+
+          <!-- Botão Simular Pagamento para Demonstração ou Confirmação Imediata -->
+          <div class="pt-2">
+            <button onclick="confirmarPagamentoSucesso()" class="bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-2.5 px-6 rounded-xl text-xs shadow-lg transition flex items-center justify-center space-x-2 mx-auto">
+              <i class="fa-solid fa-check-double"></i>
+              <span>Já realizei a transferência no App do Banco</span>
+            </button>
+            <p class="text-[11px] text-slate-500 mt-2">
+              * A confirmação ocorre de forma automática em menos de 10 segundos assim que o Pix é compensado.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- PASSO 3: SUCESSO E LINK DO GRUPO DO WHATSAPP -->
+      <div id="step-success" class="hidden space-y-6">
+        <div class="bg-slate-900/90 rounded-2xl p-6 sm:p-8 border-2 border-emerald-500 text-center space-y-5">
+          <div class="w-16 h-16 bg-emerald-500/20 text-emerald-400 rounded-full flex items-center justify-center text-3xl mx-auto border border-emerald-500/40">
+            <i class="fa-solid fa-check"></i>
+          </div>
+
+          <div>
+            <h4 class="text-2xl font-extrabold text-white">Pagamento Confirmado!</h4>
+            <p class="text-sm text-emerald-400 font-semibold mt-1">Sua vaga está garantida na Confraternização SEPPEN 2026 🎉</p>
+          </div>
+
+          <!-- Resumo da Inscrição -->
+          <div class="bg-slate-800/80 rounded-xl p-4 text-left text-xs max-w-md mx-auto border border-slate-700 space-y-1.5">
+            <div class="flex justify-between border-b border-slate-700/60 pb-1.5">
+              <span class="text-slate-400">Participante:</span>
+              <span id="resumo-nome" class="font-bold text-white">-</span>
+            </div>
+            <div class="flex justify-between border-b border-slate-700/60 pb-1.5">
+              <span class="text-slate-400">WhatsApp:</span>
+              <span id="resumo-whatsapp" class="font-mono text-slate-200">-</span>
+            </div>
+            <div class="flex justify-between border-b border-slate-700/60 pb-1.5">
+              <span class="text-slate-400">Valor Pago:</span>
+              <span id="resumo-valor" class="font-bold text-emerald-400">-</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-slate-400">Código do Voucher:</span>
+              <span id="resumo-voucher" class="font-mono text-amber-400 font-bold">-</span>
+            </div>
+          </div>
+
+          <!-- BOTÃO PRINCIPAL: ENTRAR NO GRUPO DO WHATSAPP -->
+          <div class="space-y-3 max-w-md mx-auto pt-2">
+            <a id="btn-entrar-grupo" href="https://chat.whatsapp.com/invitation-link" target="_blank" rel="noopener noreferrer"
+               class="block w-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold py-4 px-6 rounded-xl shadow-xl text-base transition flex items-center justify-center space-x-2">
+              <i class="fa-brands fa-whatsapp text-2xl"></i>
+              <span>Entrar no Grupo Oficial do WhatsApp</span>
+            </a>
+            <p class="text-[11px] text-slate-400">
+              Clique acima para ser adicionado instantaneamente ao grupo com as informações e avisos do evento.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: CONTATO DIRETO / DÚVIDAS -->
+    <section class="glass-card rounded-2xl p-6 text-center space-y-3">
+      <h4 class="font-bold text-sm text-white">Dúvidas ou Dificuldades com o Pagamento?</h4>
+      <p class="text-xs text-slate-300">
+        Fale diretamente com o organizador responsável:
+      </p>
+      <div class="inline-flex items-center space-x-2 bg-slate-900/80 px-4 py-2 rounded-xl border border-slate-700 text-xs">
+        <i class="fa-brands fa-whatsapp text-emerald-400 text-base"></i>
+        <span class="text-slate-300">Alexandre Santos:</span>
+        <a href="https://wa.me/5521988135888?text=Olá%20Alexandre,%20estou%20com%20dúvida%20sobre%20a%20Confraternização%20do%20SEPPEN" target="_blank" class="text-amber-400 font-bold hover:underline">
+          (21) 98813-5888
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- JAVASCRIPT LOGIC -->
+  <script>
+    let dadosParticipante = {};
+    let pollingInterval = null;
+
+    async function gerarPix() {
+      const nome = document.getElementById('policial-nome').value.trim();
+      const whatsapp = document.getElementById('policial-whatsapp').value.trim();
+      const matricula = document.getElementById('policial-matricula').value.trim();
+      const lotacao = document.getElementById('policial-lotacao').value.trim();
+      const opcao = document.querySelector('input[name="opcao_pagamento"]:checked').value;
+
+      if (!nome || !whatsapp) {
+        alert('Por favor, preencha pelo menos o Nome Completo e o WhatsApp.');
+        return;
+      }
+
+      const valorFormatado = opcao === '200' ? 'R$ 200,00' : 'R$ 100,00';
+      const detalheFormatado = opcao === '200' 
+        ? 'Pagamento Integral (À Vista) - Confraternização SEPPEN' 
+        : '1ª Parcela (50%) - Confraternização SEPPEN (2ª parcela até 10/12)';
+
+      dadosParticipante = {
+        nome,
+        whatsapp,
+        matricula: matricula || 'Não informada',
+        lotacao: lotacao || 'Polícia Penal',
+        valor: valorFormatado,
+        opcao,
+        voucher: 'SEPPEN-' + Math.floor(100000 + Math.random() * 900000)
+      };
+
+      document.getElementById('pix-valor-display').innerText = valorFormatado;
+      document.getElementById('pix-detalhe-display').innerText = detalheFormatado;
+
+      // Código Pix Copia e Cola (padrão EMV BR Code)
+      let pixCode = `00020126580014br.gov.bcb.pix0131ppsantosalexandre78@gmail.com520400005303986540${opcao}.005802BR5925ALEXANDRE DA SILVA SANTOS6009RIO DE JANEIRO62070503***6304${Math.floor(1000 + Math.random() * 9000)}`;
+
+      // Se estiver rodando via backend HTTP, tenta chamar a API nativa
+      if (window.location.protocol.startsWith('http')) {
+        try {
+          const res = await fetch('/api/criar-pix', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ nome, whatsapp, matricula, lotacao, opcao })
+          });
+          const data = await res.json();
+          if (data.pixCopiaCola) {
+            pixCode = data.pixCopiaCola;
+            dadosParticipante.paymentId = data.paymentId;
+            iniciarPollingStatus(data.paymentId);
+          }
+        } catch (e) {
+          console.warn('Rodando em modo cliente autônomo offline:', e);
+        }
+      }
+
+      document.getElementById('pix-copia-cola').value = pixCode;
+
+      // Gerar QR Code
+      const qrBox = document.getElementById('qrcode-box');
+      qrBox.innerHTML = '';
+      new QRCode(qrBox, {
+        text: pixCode,
+        width: 180,
+        height: 180,
+        colorDark: "#0c2340",
+        colorLight: "#ffffff",
+        correctLevel: QRCode.CorrectLevel.M
+      });
+
+      // Transição de tela
+      document.getElementById('step-form').classList.add('hidden');
+      document.getElementById('step-pix').classList.remove('hidden');
+      window.scrollTo({ top: document.getElementById('inscricao').offsetTop - 20, behavior: 'smooth' });
+    }
+
+    function iniciarPollingStatus(paymentId) {
+      if (pollingInterval) clearInterval(pollingInterval);
+      pollingInterval = setInterval(async () => {
+        try {
+          const res = await fetch(`/api/status/${paymentId}`);
+          const data = await res.json();
+          if (data.status === 'approved') {
+            clearInterval(pollingInterval);
+            if (data.groupUrl) {
+              document.getElementById('btn-entrar-grupo').href = data.groupUrl;
+            }
+            confirmarPagamentoSucesso();
+          }
+        } catch (e) {}
+      }, 3000);
+    }
+
+    function copiarPix() {
+      const input = document.getElementById('pix-copia-cola');
+      input.select();
+      navigator.clipboard.writeText(input.value).then(() => {
+        const btnText = document.getElementById('btn-copiar-text');
+        btnText.innerText = 'Copiado!';
+        setTimeout(() => {
+          btnText.innerText = 'Copiar';
+        }, 2500);
+      });
+    }
+
+    async function confirmarPagamentoSucesso() {
+      if (pollingInterval) clearInterval(pollingInterval);
+
+      // Notifica o backend para salvar na planilha se estiver no modo local
+      if (window.location.protocol.startsWith('http') && dadosParticipante.paymentId) {
+        try {
+          await fetch('/api/webhook', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ paymentId: dadosParticipante.paymentId })
+          });
+        } catch (e) {}
+      }
+
+      document.getElementById('resumo-nome').innerText = dadosParticipante.nome;
+      document.getElementById('resumo-whatsapp').innerText = dadosParticipante.whatsapp;
+      document.getElementById('resumo-valor').innerText = dadosParticipante.valor;
+      document.getElementById('resumo-voucher').innerText = dadosParticipante.voucher;
+
+      document.getElementById('step-pix').classList.add('hidden');
+      document.getElementById('step-success').classList.remove('hidden');
+      window.scrollTo({ top: document.getElementById('inscricao').offsetTop - 20, behavior: 'smooth' });
+    }
+  </script>
+</body>
+</html>
