@@ -11,6 +11,7 @@ Aplicação web autônoma para inscrições e pagamento via PIX para o evento de
 - **Planilha de Controle:** Registro detalhado com status de pagamento, quitação e controle de portaria/check-in.
 
 ## 🗺️ Local do Evento
-- **Local:** Clube Costa Brava
+- **Local:** Clube Costa Brava (Salão Nobre)
 - **Endereço:** Rua Sargento José da Silva, 3621 – Joá – Rio de Janeiro / RJ (Condomínio SAJO)
-- **Data e Horário:** 17 de Dezembro, das 15h às 20h
+- **Data e Horário:** 21 de Dezembro (Segunda-feira), das 15h às 20h
+- **Convocação de Integração (Presença Obrigatória):** Subdiretores, Diretores, Coordenadores, Superintendentes e Subsecretários
