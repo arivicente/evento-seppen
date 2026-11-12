@@ -353,13 +353,13 @@
             <div class="text-slate-400">Chave: <span class="font-mono text-amber-400">ppsantosalexandre78@gmail.com</span></div>
           </div>
 
-          <!-- Botão Simular Pagamento para Demonstração ou Confirmação Imediata -->
+          <!-- Botão Verificação Manual -->
           <div class="pt-2">
-            <button onclick="confirmarPagamentoSucesso()" class="bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-2.5 px-6 rounded-xl text-xs shadow-lg transition flex items-center justify-center space-x-2 mx-auto">
+            <button onclick="verificarStatusManual()" id="btn-verificar-manual" class="bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-2.5 px-6 rounded-xl text-xs shadow-lg transition flex items-center justify-center space-x-2 mx-auto">
               <i class="fa-solid fa-check-double"></i>
               <span>Já realizei a transferência no App do Banco</span>
             </button>
-            <p class="text-[11px] text-slate-500 mt-2">
+            <p id="status-aviso" class="text-[11px] text-slate-400 mt-2">
               * A confirmação ocorre de forma automática em menos de 10 segundos assim que o Pix é compensado.
             </p>
           </div>
@@ -400,13 +400,13 @@
 
           <!-- BOTÃO PRINCIPAL: ENTRAR NO GRUPO DO WHATSAPP -->
           <div class="space-y-3 max-w-md mx-auto pt-2">
-            <a id="btn-entrar-grupo" href="https://chat.whatsapp.com/invitation-link" target="_blank" rel="noopener noreferrer"
+            <a id="btn-entrar-grupo" href="#" target="_blank" rel="noopener noreferrer"
                class="block w-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold py-4 px-6 rounded-xl shadow-xl text-base transition flex items-center justify-center space-x-2">
               <i class="fa-brands fa-whatsapp text-2xl"></i>
               <span>Entrar no Grupo Oficial do WhatsApp</span>
             </a>
             <p class="text-[11px] text-slate-400">
-              Clique acima para ser adicionado instantaneamente ao grupo com as informações e avisos do evento.
+              Você também receberá uma cópia deste link diretamente no seu WhatsApp cadastrado.
             </p>
           </div>
         </div>
@@ -447,6 +447,11 @@
         return;
       }
 
+      const btn = document.querySelector('#step-form button[onclick="gerarPix()"]');
+      const originalBtnHtml = btn.innerHTML;
+      btn.disabled = true;
+      btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin mr-2"></i><span>Gerando Pix no Mercado Pago...</span>';
+
       const valorFormatado = opcao === '200' ? 'R$ 200,00' : 'R$ 100,00';
       const detalheFormatado = opcao === '200' 
         ? 'Pagamento Integral (À Vista) - Confraternização SEPPEN' 
@@ -465,63 +470,86 @@
       document.getElementById('pix-valor-display').innerText = valorFormatado;
       document.getElementById('pix-detalhe-display').innerText = detalheFormatado;
 
-      // Código Pix Copia e Cola (padrão EMV BR Code)
-      let pixCode = `00020126580014br.gov.bcb.pix0131ppsantosalexandre78@gmail.com520400005303986540${opcao}.005802BR5925ALEXANDRE DA SILVA SANTOS6009RIO DE JANEIRO62070503***6304${Math.floor(1000 + Math.random() * 9000)}`;
+      try {
+        const res = await fetch('/api/criar-pix', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ nome, whatsapp, matricula, lotacao, opcao })
+        });
+        const data = await res.json();
 
-      // Se estiver rodando via backend HTTP, tenta chamar a API nativa
-      if (window.location.protocol.startsWith('http')) {
-        try {
-          const res = await fetch('/api/criar-pix', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ nome, whatsapp, matricula, lotacao, opcao })
-          });
-          const data = await res.json();
-          if (data.pixCopiaCola) {
-            pixCode = data.pixCopiaCola;
-            dadosParticipante.paymentId = data.paymentId;
-            iniciarPollingStatus(data.paymentId);
-          }
-        } catch (e) {
-          console.warn('Rodando em modo cliente autônomo offline:', e);
+        if (!res.ok || !data.pixCopiaCola) {
+          throw new Error(data.error || 'Falha ao gerar cobrança Pix.');
         }
+
+        dadosParticipante.paymentId = data.paymentId;
+        dadosParticipante.voucher = `SEPPEN-${data.paymentId}`;
+        document.getElementById('pix-copia-cola').value = data.pixCopiaCola;
+
+        // Renderizar QR Code (prioriza imagem oficial do Mercado Pago)
+        const qrBox = document.getElementById('qrcode-box');
+        qrBox.innerHTML = '';
+        if (data.qrCodeBase64) {
+          const img = document.createElement('img');
+          img.src = `data:image/png;base64,${data.qrCodeBase64}`;
+          img.alt = 'QR Code Pix Mercado Pago';
+          img.className = 'w-44 h-44 object-contain';
+          qrBox.appendChild(img);
+        } else {
+          new QRCode(qrBox, {
+            text: data.pixCopiaCola,
+            width: 180,
+            height: 180,
+            colorDark: "#0c2340",
+            colorLight: "#ffffff",
+            correctLevel: QRCode.CorrectLevel.M
+          });
+        }
+
+        iniciarPollingStatus(data.paymentId);
+
+        document.getElementById('step-form').classList.add('hidden');
+        document.getElementById('step-pix').classList.remove('hidden');
+        window.scrollTo({ top: document.getElementById('inscricao').offsetTop - 20, behavior: 'smooth' });
+      } catch (err) {
+        alert('Erro ao gerar o Pix: ' + err.message);
+      } finally {
+        btn.disabled = false;
+        btn.innerHTML = originalBtnHtml;
       }
-
-      document.getElementById('pix-copia-cola').value = pixCode;
-
-      // Gerar QR Code
-      const qrBox = document.getElementById('qrcode-box');
-      qrBox.innerHTML = '';
-      new QRCode(qrBox, {
-        text: pixCode,
-        width: 180,
-        height: 180,
-        colorDark: "#0c2340",
-        colorLight: "#ffffff",
-        correctLevel: QRCode.CorrectLevel.M
-      });
-
-      // Transição de tela
-      document.getElementById('step-form').classList.add('hidden');
-      document.getElementById('step-pix').classList.remove('hidden');
-      window.scrollTo({ top: document.getElementById('inscricao').offsetTop - 20, behavior: 'smooth' });
     }
 
     function iniciarPollingStatus(paymentId) {
       if (pollingInterval) clearInterval(pollingInterval);
-      pollingInterval = setInterval(async () => {
-        try {
-          const res = await fetch(`/api/status/${paymentId}`);
-          const data = await res.json();
-          if (data.status === 'approved') {
-            clearInterval(pollingInterval);
-            if (data.groupUrl) {
-              document.getElementById('btn-entrar-grupo').href = data.groupUrl;
-            }
-            confirmarPagamentoSucesso();
+      pollingInterval = setInterval(() => checarStatus(paymentId, false), 3000);
+    }
+
+    async function verificarStatusManual() {
+      if (!dadosParticipante.paymentId) return;
+      const aviso = document.getElementById('status-aviso');
+      aviso.innerText = 'Consultando confirmação bancária...';
+      const aprovado = await checarStatus(dadosParticipante.paymentId, true);
+      if (!aprovado) {
+        aviso.innerText = 'Pagamento ainda em processamento pelo banco. Aguarde alguns segundos após concluir o Pix.';
+      }
+    }
+
+    async function checarStatus(paymentId, isManual) {
+      try {
+        const res = await fetch(`/api/status/${paymentId}`);
+        const data = await res.json();
+        if (data.status === 'approved') {
+          if (pollingInterval) clearInterval(pollingInterval);
+          if (data.groupUrl) {
+            document.getElementById('btn-entrar-grupo').href = data.groupUrl;
           }
-        } catch (e) {}
-      }, 3000);
+          confirmarPagamentoSucesso();
+          return true;
+        }
+      } catch (e) {
+        if (isManual) console.error(e);
+      }
+      return false;
     }
 
     function copiarPix() {
@@ -536,20 +564,8 @@
       });
     }
 
-    async function confirmarPagamentoSucesso() {
+    function confirmarPagamentoSucesso() {
       if (pollingInterval) clearInterval(pollingInterval);
-
-      // Notifica o backend para salvar na planilha se estiver no modo local
-      if (window.location.protocol.startsWith('http') && dadosParticipante.paymentId) {
-        try {
-          await fetch('/api/webhook', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ paymentId: dadosParticipante.paymentId })
-          });
-        } catch (e) {}
-      }
-
       document.getElementById('resumo-nome').innerText = dadosParticipante.nome;
       document.getElementById('resumo-whatsapp').innerText = dadosParticipante.whatsapp;
       document.getElementById('resumo-valor').innerText = dadosParticipante.valor;

@@ -1,8 +1,19 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "evento-seppen",
+  "main": "src/worker.js",
   "compatibility_date": "2024-09-23",
   "assets": {
-    "directory": "./public"
+    "directory": "./public",
+    "binding": "ASSETS"
+  },
+  "kv_namespaces": [
+    {
+      "binding": "SEPPEN_KV",
+      "id": "e807214d50bc41c2a28eec7eda4972d9"
+    }
+  ],
+  "vars": {
+    "WHATSAPP_TEMPLATE_NAME": "confirmacao_evento_pix"
   }
 }
